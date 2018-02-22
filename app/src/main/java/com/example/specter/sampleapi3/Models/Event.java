@@ -1,10 +1,10 @@
 
-package com.example.specter.sampleapi3;
+package com.example.specter.sampleapi3.Models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AppEvent {
+public class Event {
 
     @SerializedName("id")
     @Expose

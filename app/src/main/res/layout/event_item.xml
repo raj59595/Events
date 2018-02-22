@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    tools:context="com.example.specter.sampleapi3.Index">
+    tools:context="com.example.specter.sampleapi3.Activity.EventlistActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardview1"
@@ -46,7 +47,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ID" />
+                            android:text="ID:" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -68,7 +69,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Venue" />
+                            android:text="Venue:" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -142,9 +143,10 @@
                 android:layout_marginTop="8dp">
 
                 <TextView
+                    android:id="@+id/time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/time" />
+                    />
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

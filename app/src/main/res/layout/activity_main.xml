@@ -5,19 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context="com.example.specter.sampleapi3.MainActivity">
 
+    tools:context="com.example.specter.sampleapi3.Activity.HomeActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:fontFamily="serif-monospace"
+        android:lineSpacingExtra="10sp"
+        android:text="Click to get the Events List!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Index"
-        android:gravity="center"
-        />
-
-
-
+        android:layout_marginHorizontal="135dp"
+        android:layout_marginTop="150dp"
+        android:text="EVENTS" />
 </LinearLayout>
+

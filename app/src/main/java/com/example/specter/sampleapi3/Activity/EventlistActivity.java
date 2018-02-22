@@ -1,4 +1,4 @@
-package com.example.specter.sampleapi3;
+package com.example.specter.sampleapi3.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.specter.sampleapi3.Utilities.RetrofitHelper;
+import com.example.specter.sampleapi3.Models.Event;
+import com.example.specter.sampleapi3.Adapters.EventAdapter;
+import com.example.specter.sampleapi3.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -17,12 +21,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Index extends AppCompatActivity {
+public class EventlistActivity extends AppCompatActivity {
 
 
     RecyclerView eventlist;
     private TextView responseText;
-    List<AppEvent> appEvents;
+    List<Event> appEvents;
+    EventAdapter eventAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,7 @@ public class Index extends AppCompatActivity {
 
     private void getProducts()
     {
-        Call<JsonObject> eventListCall  =   APIClient.getRetrofitService().getEventlist();
+        Call<JsonObject> eventListCall  =   RetrofitHelper.getRetrofitService().getEventlist();
         eventListCall.enqueue(new Callback<JsonObject>()
         {
             @Override
@@ -45,7 +50,7 @@ public class Index extends AppCompatActivity {
                 {
                     JsonObject jsonObject = response.body();
 
-                    appEvents = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"),new TypeToken<List<AppEvent>>() {}.getType());
+                    appEvents = new Gson().fromJson(jsonObject.getAsJsonArray("app_events"),new TypeToken<List<Event>>() {}.getType());
                     setProductsToAdapter();
                     // Show the products on the screen
 
@@ -56,7 +61,7 @@ public class Index extends AppCompatActivity {
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t)
             {
-                Toast.makeText(Index.this, "failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventlistActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -67,8 +72,9 @@ public class Index extends AppCompatActivity {
         // Add adapter to the recycler view
         // jsonlist.setHasFixedSize(true);
         eventlist.setLayoutManager(new LinearLayoutManager(this));
-        eventlist.setAdapter(new NewAdapter(appEvents,this));
-        eventlist.getAdapter().notifyDataSetChanged();
+        eventAdapter = new EventAdapter(this,appEvents);
+        eventlist.setAdapter(eventAdapter);
+        eventAdapter.notifyDataSetChanged();
 
 
     }

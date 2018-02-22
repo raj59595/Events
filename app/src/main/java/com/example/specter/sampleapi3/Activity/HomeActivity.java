@@ -1,4 +1,4 @@
-package com.example.specter.sampleapi3;
+package com.example.specter.sampleapi3.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.specter.sampleapi3.R;
+
+public class HomeActivity extends AppCompatActivity {
 
 
 
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent =  new Intent(MainActivity.this,Index.class);
+                Intent intent =  new Intent(HomeActivity.this,EventlistActivity.class);
                 startActivity(intent);
             }
         });

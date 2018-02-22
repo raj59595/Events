@@ -1,4 +1,4 @@
-package com.example.specter.sampleapi3;
+package com.example.specter.sampleapi3.Utilities;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by specter on 2/20/18.
  */
 
-public class APIClient {
+public class RetrofitHelper {
 
     private static Retrofit retrofit = null;
     static Retrofit getClient() {
@@ -29,7 +29,7 @@ public class APIClient {
 
         return retrofit;
     }
-    public static APIInterface getRetrofitService(){
-        return getClient().create(APIInterface.class);
+    public static RetrofitService getRetrofitService(){
+        return getClient().create(RetrofitService.class);
     }
 }
